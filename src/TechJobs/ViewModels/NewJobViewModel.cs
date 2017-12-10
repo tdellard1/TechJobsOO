@@ -14,8 +14,28 @@ namespace TechJobs.ViewModels
         [Required]
         [Display(Name = "Employer")]
         public int EmployerID { get; set; }
+        
 
-        // TODO #3 - Included other fields needed to create a job,
+
+
+        [Required]
+        [Display(Name = "Location")]
+        public int LocationID { get; set; }
+
+
+
+        [Required]
+        [Display(Name = "CoreCompetencies")]
+        public int CoreCompetenciesID { get; set; }
+
+
+
+
+        [Required]
+        [Display(Name = "PositionTypes")]
+        public int PositionTypesID { get; set; }
+
+        // TODO #3 - Included other fields needed to  create a job,
         // with correct validation attributes and display names.
 
         public List<SelectListItem> Employers { get; set; } = new List<SelectListItem>();
@@ -30,7 +50,35 @@ namespace TechJobs.ViewModels
 
             foreach (Employer field in jobData.Employers.ToList())
             {
-                Employers.Add(new SelectListItem {
+                Employers.Add(new SelectListItem
+                {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+
+            foreach (Location field in jobData.Locations.ToList())
+            {
+                Locations.Add(new SelectListItem
+                {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+
+            foreach (PositionType field in jobData.PositionTypes.ToList())
+            {
+                PositionTypes.Add(new SelectListItem
+                {
+                    Value = field.ID.ToString(),
+                    Text = field.Value
+                });
+            }
+
+            foreach (CoreCompetency field in jobData.CoreCompetencies.ToList())
+            {
+                CoreCompetencies.Add(new SelectListItem
+                {
                     Value = field.ID.ToString(),
                     Text = field.Value
                 });

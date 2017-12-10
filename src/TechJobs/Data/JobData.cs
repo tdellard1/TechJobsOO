@@ -7,7 +7,7 @@ namespace TechJobs.Data
 {
     class JobData
     {
-        /**
+        /*
          * A data store for Job objects
          */
 
